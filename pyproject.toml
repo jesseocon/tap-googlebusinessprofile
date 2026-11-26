@@ -1,0 +1,28 @@
+[project]
+name = "tap-googlebusinessprofile"
+version = "0.1.0"
+description = "Singer tap for Google Business Profile (accounts, locations, daily metrics, search keywords, reviews), built with the Meltano Singer SDK."
+readme = "README.md"
+authors = [{ name = "Jesse Ocon", email = "jesse.ocon@growthnirvana.com" }]
+keywords = ["ELT", "GoogleBusinessProfile"]
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = [
+    "singer-sdk~=0.47.4",
+    "requests~=2.32.3",
+]
+
+[project.scripts]
+tap-googlebusinessprofile = "tap_googlebusinessprofile.tap:TapGoogleBusinessProfile.cli"
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+addopts = ["-ra"]
+testpaths = ["tests"]
+
+[build-system]
+requires = ["hatchling>=1,<2"]
+build-backend = "hatchling.build"
